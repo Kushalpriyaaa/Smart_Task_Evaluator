@@ -33,110 +33,120 @@ export default function SignupPage() {
   };
 
   return (
-    <div className="relative flex items-center justify-center min-h-screen bg-[#0a0a23] overflow-hidden px-4">
-
-      {/* Robot Image */}
+    <div className="relative flex items-center justify-center min-h-screen bg-[#0a0a23] overflow-hidden px-4 sm:px-6 lg:px-8">
+      {/* Robot Image - Desktop only (left side) */}
       <motion.div
         initial={{ scale: 0.8, rotate: -10 }}
         animate={{ scale: 1, rotate: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="hidden md:block absolute left-8 top-1/2 transform -translate-y-1/2"
+        className="absolute left-10 top-1/2 transform -translate-y-1/2 hidden lg:block"
       >
-        <img src="/robot.png" alt="AI Robot" className="w-64 md:w-[600px] h-auto" />
+        <img
+          src="/robot.png"
+          alt="AI Robot"
+          className="w-[500px] xl:w-[600px] h-auto"
+        />
       </motion.div>
 
-      {/* CHANGE HERE ➤ Added wrapper div for correct alignment */}
-      <div className="flex justify-center md:justify-end w-full md:pr-20">
-      {/* ------------------------------------------------------------------ */}
-
-        {/* Signup Card */}
+      {/* Signup Card */}
+      <motion.div
+        initial={{ opacity: 0, y: 40, scale: 0.8 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ duration: 0.8 }}
+        className="relative z-10 w-full max-w-[400px] lg:max-w-[500px] mx-auto p-6 sm:p-8 lg:p-10 rounded-2xl bg-[#1a1a3e] lg:backdrop-blur-xl lg:bg-white/10 border border-white/10 lg:border-white/20 shadow-xl lg:shadow-[0_0_30px_rgba(255,255,255,0.2)] text-white lg:translate-x-90"
+      >
+        {/* Robot Image - Mobile/Tablet only (inside card) */}
         <motion.div
-          initial={{ opacity: 0, y: 40, scale: 0.8 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 0.8 }}
-
-          // CHANGE HERE ➤ Removed md:ml-20 which caused layout issues
-          className="relative z-10 w-full max-w-md p-6 sm:p-10 rounded-2xl backdrop-blur-xl bg-white/10 border border-white/20 shadow-lg text-white mx-4"
-          // ------------------------------------------------------------------
+          initial={{ scale: 0.8 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="flex justify-center mb-6 lg:hidden"
         >
-          {/* Small robot for narrow screens */}
-          <div className="md:hidden flex justify-center mb-4">
-            <img src="/robot.png" alt="robot" className="w-32 h-auto" />
-          </div>
-
-          {/* Neon Title */}
-          <motion.h1
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
-            className="text-2xl sm:text-3xl font-bold text-center mb-9 text-white drop-shadow-[0_0_12px_rgba(0,102,255,0.7)]"
-          >
-            Create Account 🤖
-          </motion.h1>
-
-          {/* Username */}
-          <label className="text-sm text-blue-300">Username</label>
-          <input
-            type="text"
-            placeholder="your_username"
-            className="w-full px-4 py-3 rounded-lg bg-white/10 border border-blue-500/40 mb-4 text-white outline-none focus:border-blue-300 focus:ring-2 focus:ring-blue-500/70"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+          <img
+            src="/robot.png"
+            alt="AI Robot"
+            className="w-[120px] h-auto"
           />
-
-          {/* Email */}
-          <label className="text-sm text-blue-300">Email</label>
-          <input
-            type="email"
-            placeholder="email@domain.com"
-            className="w-full px-4 py-3 rounded-lg bg-white/10 border border-blue-500/40 mb-4 text-white outline-none focus:border-blue-300 focus:ring-2 focus:ring-blue-500/70"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-
-          {/* Password */}
-          <label className="text-sm text-blue-300">Password</label>
-         <input
-  type="text"
-  placeholder="your_username"
-  autoComplete="off"
-  name="new-username"   // prevents autofill
-  inputMode="text"
-  className="w-full px-4 py-3 rounded-lg bg-white/10 border border-blue-500/40 mb-4 text-white outline-none focus:border-blue-300 focus:ring-2 focus:ring-blue-500/70"
-  value={username}
-  onChange={(e) => setUsername(e.target.value)}
-/>
-
-
-          {/* Button */}
-          <motion.button
-            whileHover={{ scale: 1.05, boxShadow: "0 0 20px #3b82f6" }}
-            whileTap={{ scale: 0.95 }}
-            onClick={handleSignup}
-            className="w-full py-3 bg-linear-to-r from-purple-500 to-pink-500 text-white rounded-md font-semibold shadow-xl cursor-pointer"
-          >
-            Sign Up 🚀
-          </motion.button>
-
-          {/* Message */}
-          {message && (
-            <p className="text-center text-green-400 mt-4 text-sm animate-pulse">
-              {message}
-            </p>
-          )}
-
-          {/* Footer */}
-          <p className="text-center mt-3 text-sm text-blue-300">
-            Already have an account?
-            <button
-              className="text-blue-400 underline pl-1 cursor-pointer"
-              onClick={() => router.push("/Login")}
-            >
-              Login
-            </button>
-          </p>
         </motion.div>
-      </div> {/* change wrapper close */}
+
+        {/* Title */}
+        <motion.h1
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+          className="text-2xl sm:text-3xl font-bold text-center mb-6 text-white lg:drop-shadow-[0_0_12px_rgba(0,102,255,0.7)]"
+        >
+          Create Account 🤖
+        </motion.h1>
+
+        {/* Username */}
+        <label className="text-sm text-gray-300 lg:text-blue-300 block mb-2">Username</label>
+        <input
+          type="text"
+          placeholder="your_username"
+          autoComplete="off"
+          autoCorrect="off"
+          autoCapitalize="none"
+          spellCheck="false"
+          className="w-full px-4 py-3 rounded-lg bg-[#2a2a4e] lg:bg-white/10 border border-gray-600 lg:border-blue-500/40 mb-4 text-white placeholder-gray-400 outline-none focus:border-blue-400 lg:focus:border-blue-300 focus:ring-1 lg:focus:ring-2 focus:ring-blue-400 lg:focus:ring-blue-500/70"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+
+        {/* Email */}
+        <label className="text-sm text-gray-300 lg:text-blue-300 block mb-2">Email</label>
+        <input
+          type="email"
+          placeholder="email@domain.com"
+          autoComplete="new-email"
+          autoCorrect="off"
+          autoCapitalize="none"
+          className="w-full px-4 py-3 rounded-lg bg-[#2a2a4e] lg:bg-white/10 border border-gray-600 lg:border-blue-500/40 mb-4 text-white placeholder-gray-400 outline-none focus:border-blue-400 lg:focus:border-blue-300 focus:ring-1 lg:focus:ring-2 focus:ring-blue-400 lg:focus:ring-blue-500/70"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+
+        {/* Password */}
+        <label className="text-sm text-gray-300 lg:text-blue-300 block mb-2">Password</label>
+        <input
+          type="password"
+          placeholder="••••••••"
+          autoComplete="new-password"
+          autoCorrect="off"
+          autoCapitalize="none"
+          className="w-full px-4 py-3 rounded-lg bg-[#2a2a4e] lg:bg-white/10 border border-gray-600 lg:border-blue-500/40 mb-6 text-white placeholder-gray-400 outline-none focus:border-blue-400 lg:focus:border-blue-300 focus:ring-1 lg:focus:ring-2 focus:ring-blue-400 lg:focus:ring-blue-500/70"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+
+        {/* Button */}
+        <motion.button
+          whileHover={{ scale: 1.02, boxShadow: "0 0 20px #3b82f6" }}
+          whileTap={{ scale: 0.98 }}
+          onClick={handleSignup}
+          className="w-full py-3 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white rounded-lg font-semibold shadow-lg transition-all"
+        >
+          Sign Up 🚀
+        </motion.button>
+
+        {/* Message */}
+        {message && (
+          <p className="text-center text-green-400 mt-4 text-sm animate-pulse">
+            {message}
+          </p>
+        )}
+
+        {/* Footer */}
+        <p className="text-center mt-4 lg:mt-3 text-sm text-gray-400 lg:text-blue-300">
+          Already have an account?{" "}
+          <button
+            className="text-blue-400 hover:text-blue-300 font-medium lg:font-normal lg:underline cursor-pointer"
+            onClick={() => router.push("/Login")}
+          >
+            Login
+          </button>
+        </p>
+      </motion.div>
     </div>
   );
 }
