@@ -43,7 +43,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="relative flex items-center justify-center min-h-screen bg-[#0a0a23] overflow-hidden">
+    <div className="relative flex items-center justify-center min-h-screen bg-[#0a0a23] overflow-hidden px-4">
 
       {/* Bubble layer (safe hydration) */}
       {bubbles.map((bubble, i) => (
@@ -72,18 +72,18 @@ export default function LoginPage() {
         initial={{ opacity: 0, y: 40, scale: 0.8 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ duration: 0.8 }}
-        className="relative z-10 w-[500px] h-[600px] p-10 rounded-2xl backdrop-blur-xl bg-white/10 border border-white/20 shadow-[0_0_30px_rgba(255,255,255,0.2)] text-white"
+        className="relative z-10 w-full max-w-md p-6 sm:p-10 rounded-2xl backdrop-blur-xl bg-white/10 border border-white/20 shadow-lg text-white mx-4"
       >
         {/* Robot Image */}
         <div className="flex justify-center mb-6">
           <img
             src="/robot.png" // Assuming the robot image is named "robot.png" in the public folder
             alt="AI Robot"
-            className="w-[150px] h-auto" // Added robot image above "Welcome Back"
+            className="w-24 sm:w-[150px] h-auto" // Adjusted robot image size for responsiveness
           />
         </div>
 
-        <h2 className="text-center text-2xl font-bold mb-2">Welcome Back</h2>
+        <h2 className="text-center text-xl sm:text-2xl font-bold mb-2">Welcome Back</h2>
         <p className="text-center text-sm text-white/70 tracking-wide mb-6">Login to continue</p>
 
         <input
