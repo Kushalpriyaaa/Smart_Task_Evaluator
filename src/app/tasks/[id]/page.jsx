@@ -38,23 +38,18 @@ export default function TaskReportPage() {
     <main className="min-h-screen bg-gray-950 text-white px-8 py-10">
 
       <button className="mb-6 flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors" onClick={() => router.push("/dashboard")}>
-        <span className="text-xl">←</span> Back to Dashboard
+        <span className="text-xl"><a href="/dashboard" className="text-blue-500 hover:underline flex items-center gap-2">
+          <span className="text-lg">&lt;</span>
+        </a> </span> 
       </button>
 
-      <div className="flex items-center justify-between mb-8">
-        <h1 className="text-4xl font-bold flex items-center gap-3">
-          <span>📊</span> Task Evaluation Report
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8">
+        <h1 className="text-xl sm:text-2xl font-bold flex items-center gap-2">
+           <span>📊</span> Task Evaluation Report
+
         </h1>
-        <div className="flex items-center gap-2 bg-gradient-to-r from-gray-800 to-gray-900 px-5 py-3 rounded-full border border-gray-700 shadow-lg">
-          <span className="text-sm text-gray-400">Score:</span>
-          <span className={`text-2xl font-bold ${
-            task.score >= 80 ? 'text-green-400' : 
-            task.score >= 60 ? 'text-yellow-400' : 
-            task.score >= 40 ? 'text-orange-400' : 
-            'text-red-400'
-          }`}>
-            {task.score ?? "N/A"}/100
-          </span>
+        <div className="bg-green-600 text-white px-3 sm:px-4 py-1 sm:py-2 rounded-md sm:rounded-lg text-xs sm:text-sm font-medium shadow-md">
+          Score: <span className="font-bold">{task.score ?? "N/A"}/100</span>
         </div>
       </div>
 
@@ -69,7 +64,7 @@ export default function TaskReportPage() {
       <section className="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl mb-6 border border-gray-700 shadow-xl">
         <div className="flex items-center gap-3 mb-6">
           <span className="text-3xl">🤖</span>
-          <h2 className="text-2xl font-semibold text-blue-300">AI Feedback</h2>
+          <h2 className="text-2xl font-semibold text-blue-300"> Feedback</h2>
         </div>
 
         <div className="mb-6 bg-gradient-to-r from-green-900/30 to-emerald-900/30 p-6 rounded-xl border border-green-700/40">

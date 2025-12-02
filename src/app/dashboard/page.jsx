@@ -173,20 +173,20 @@ export default function DashboardPage() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950 text-white flex flex-col items-center px-6 py-10">
       <header className="w-full flex justify-between max-w-5xl mb-6">
-        <div className="absolute top-6 left-6 flex flex-col items-start gap-2">
-          <h1 className="text-3xl font-bold tracking-tight">⚡ Smart Task Evaluator</h1>
+        <div className="absolute top-6 left-0 flex flex-col items-start gap-2">
+          <h1 className="text-3xl font-bold tracking-tight sm:ml-0 mr-1  mt-4 .54">⚡Smart Task Evaluator</h1>
           
         </div>
         <button
           onClick={handleLogout}
-          className="absolute top-6 right-6 px-5 py-2 bg-red-500/90 hover:bg-red-600 rounded-lg font-medium transition-all shadow-lg hover:shadow-red-500/50"
+          className="absolute top-4 sm:top-6 right-4 sm:right-6 px-3 sm:px-5 py-1 sm:py-2 bg-red-500/90 hover:bg-red-600 rounded-md sm:rounded-lg font-medium transition-all shadow-md sm:shadow-lg hover:shadow-red-500/50 text-xs sm:text-base"
         >
           Logout
         </button>
       </header>
 
       {user && (
-        <p className="text-gray-300 mb-8 flex items-center gap-2 text-lg">
+        <p className="text-gray-300 mb-8 flex items-center gap-2 text-lg  mt-4">
           Welcome: <b className="text-white">{username}</b>
           <span className="text-2xl animate-bounce">👋</span>
         </p>
@@ -300,7 +300,7 @@ export default function DashboardPage() {
                   <span className="truncate w-2/3 text-gray-200">{report.description}</span>
                   <button
                     onClick={() => router.push(`/tasks/${report.id}`)}
-                    className="bg-green-600 hover:bg-green-700 px-4 py-2 rounded-lg font-medium transition-all shadow-md hover:shadow-green-500/50"
+                    className="bg-green-600 hover:bg-green-700 px-3 sm:px-4 py-2 text-xs sm:text-sm rounded-md sm:rounded-lg font-medium transition-all shadow-md hover:shadow-green-500/50"
                   >
                     View Report
                   </button>
